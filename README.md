@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# clone repo
+git clone https://github.com/sanjivani-rajoriya/dynamic-form-builder.git
+cd dynamic-form-builder
 
-## Getting Started
+# Install dependencies
+npm install
 
-First, run the development server:
-
-```bash
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Design Decisions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Next.js + TypeScript
+Provides strong typing and modern app structure with the App Router.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Single State Management (no Context/Redux)
+For simplicity, all form state is handled in the main component with useState. This avoids unnecessary complexity.
 
-## Learn More
+3. Validation with Yup
 
-To learn more about Next.js, take a look at the following resources:
+Text: required
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Email: must be valid
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Number: must be greater than 0
 
-## Deploy on Vercel
+4. Persistence
+Form fields are saved in localStorage so the form is restored on reload.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Preview Mode
+After submitting, users can see a summary of their entered values.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+6. TailwindCSS
+Used for fast styling with utility classes.
